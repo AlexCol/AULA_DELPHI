@@ -1,12 +1,9 @@
 ﻿[pnlTopo]
 Coordinates=10,10,61,58
 
-[btnFehar]
-Coordinates=155,10,66,58
-
 [pnlMenu]
 Coordinates=81,10,64,58
 
 []
-Coordinates=165,1,91,36
+Coordinates=155,10,66,58
 

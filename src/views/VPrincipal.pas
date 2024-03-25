@@ -9,11 +9,31 @@ uses
 type
   TViewPrincipal = class(TForm)
     pnlTopo: TPanel;
-    btnFehar: TButton;
     pnlMenu: TPanel;
     pnlBackPrincipal: TPanel;
     pnlRodape: TPanel;
     pnlConteudo: TPanel;
+    pnlLogo: TPanel;
+    pnlConteudoLogo: TPanel;
+    lblTituloEmpresa: TLabel;
+    lblDescricaoEmpresa: TLabel;
+    pnlVersao: TPanel;
+    lblVersaoTitulo: TLabel;
+    lblVersao: TLabel;
+    pnlLineHeader: TPanel;
+    btnFehar: TButton;
+    pnlUsuario: TPanel;
+    pnlLineUsuario: TPanel;
+    pnlImgUsuario: TPanel;
+    pnlDadosUsuario: TPanel;
+    Image1: TImage;
+    lblNomeUsuario: TLabel;
+    lblPerfilUsuario: TLabel;
+    pnlLicenciado: TPanel;
+    pnlLineRodape: TPanel;
+    pnlConteudoLicenca: TPanel;
+    lblTitLicenciado: TLabel;
+    lblLicenciado: TLabel;
     procedure btnFeharClick(Sender: TObject);
   private
     { Private declarations }
