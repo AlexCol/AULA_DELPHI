@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, System.ImageList, Vcl.ImgList,
-  System.Actions, Vcl.ActnList;
+  System.Actions, Vcl.ActnList, Provider.Constants;
 
 type
   TViewPrincipal = class(TForm)
@@ -72,6 +72,7 @@ implementation
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
   getMenuLine(btnClientes);
+  lblLicenciado.Caption := sRAZAO_FILIAL;
 end;
 
 procedure TViewPrincipal.speedButtonOnMouseEnter(Sender: TObject);
