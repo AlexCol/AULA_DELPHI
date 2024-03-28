@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VBaseListas, Data.DB, Vcl.Grids,
   Vcl.DBGrids, Vcl.StdCtrls, Vcl.WinXCtrls, Vcl.WinXPanels, Vcl.Buttons,
-  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Service.Cadastro, Vcl.DBCtrls, Vcl.Mask;
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Service.Cadastro, Vcl.DBCtrls, Vcl.Mask,
+  Provider.Procedures;
 
 type
   TViewClientes = class(TViewBaseListas)
@@ -35,7 +36,7 @@ type
   private
     { Private declarations }
   public
-    procedure GET_Pessoas(iTIPO: integer);
+
   end;
 
 var
@@ -53,15 +54,7 @@ begin
   GET_Pessoas(1);
 end;
 
-procedure TViewClientes.GET_Pessoas(iTIPO: integer);
-begin
-  ServiceCadastro.QRY_Pessoas.Close;
-  ServiceCadastro.QRY_Pessoas.SQL.Clear;
-  ServiceCadastro.QRY_Pessoas.SQL.Add('select * from pessoa where pes_tipo_pessoa = :tipopessoa');
-  ServiceCadastro.QRY_Pessoas.SQL.Add('order by 1 asc');
-  ServiceCadastro.QRY_Pessoas.Params[0].AsInteger := iTIPO;
-  ServiceCadastro.QRY_Pessoas.Open();
-end;
+
 
 procedure TViewClientes.btnNovoClick(Sender: TObject);
 begin

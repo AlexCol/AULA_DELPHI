@@ -130,6 +130,11 @@
             <Form>ViewClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\views\VFornecedores.pas">
+            <Form>ViewFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\providers\Provider.Procedures.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

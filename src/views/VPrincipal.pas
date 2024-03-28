@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, System.ImageList, Vcl.ImgList,
-  System.Actions, Vcl.ActnList, Provider.Constants, VClientes;
+  System.Actions, Vcl.ActnList, Provider.Constants, VClientes, VFornecedores;
 
 type
   TViewPrincipal = class(TForm)
@@ -56,6 +56,7 @@ type
     procedure imgUserWhiteMouseEnter(Sender: TObject);
     procedure imgUserPurpleMouseLeave(Sender: TObject);
     procedure btnClientesClick(Sender: TObject);
+    procedure btnFornecedoresClick(Sender: TObject);
   private
     procedure getMenuLine(Sender: TObject);
 
@@ -70,6 +71,33 @@ implementation
 
 {$R *.dfm}
 
+procedure TViewPrincipal.btnClientesClick(Sender: TObject);
+begin
+  ViewClientes := TViewClientes.Create(Self);
+  try
+    ViewClientes.ShowModal;
+  finally
+    FreeAndNil(ViewClientes);
+  end;
+end;
+
+procedure TViewPrincipal.btnFornecedoresClick(Sender: TObject);
+begin
+  ViewFornecedores := TViewFornecedores.Create(Self);
+  try
+    ViewFornecedores.ShowModal;
+  finally
+    FreeAndNil(ViewFornecedores);
+  end;
+end;
+
+procedure TViewPrincipal.btnSairClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+
+//procedures para formatação
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
   getMenuLine(btnClientes);
@@ -96,8 +124,6 @@ begin
   pnlShapeMenu.Repaint;
 end;
 
-
-
 procedure TViewPrincipal.lblTituloEmpresaMouseEnter(Sender: TObject);
 begin
   lblTituloEmpresa.Font.Color := $000FBBD9;
@@ -107,8 +133,6 @@ procedure TViewPrincipal.lblTituloEmpresaMouseLeave(Sender: TObject);
 begin
   lblTituloEmpresa.Font.Color := clWhite;
 end;
-
-
 
 procedure TViewPrincipal.imgUserWhiteMouseEnter(Sender: TObject);
 begin
@@ -120,21 +144,6 @@ procedure TViewPrincipal.imgUserPurpleMouseLeave(Sender: TObject);
 begin
   imgUserWhite.Visible := true;
   imgUserPurple.Visible := false;
-end;
-
-procedure TViewPrincipal.btnClientesClick(Sender: TObject);
-begin
-  ViewClientes := TViewClientes.Create(Self);
-  try
-    ViewClientes.ShowModal;
-  finally
-    FreeAndNil(ViewClientes);
-  end;
-end;
-
-procedure TViewPrincipal.btnSairClick(Sender: TObject);
-begin
-  Application.Terminate;
 end;
 
 end.

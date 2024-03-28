@@ -26,6 +26,7 @@ inherited ViewClientes: TViewClientes
   end
   inherited pnlBackgroundPesquisa: TPanel
     inherited CardPanelLista: TCardPanel
+      ActiveCard = CardCadastro
       inherited CardPesquisa: TCard
         inherited DBGrid1: TDBGrid
           Columns = <
@@ -72,9 +73,9 @@ inherited ViewClientes: TViewClientes
         object Label2: TLabel
           Left = 286
           Top = 120
-          Width = 68
+          Width = 93
           Height = 15
-          Caption = 'Raz'#227'o Social'
+          Caption = 'Nome do Cliente'
           FocusControl = edtPES_RAZAO
         end
         object Label3: TLabel

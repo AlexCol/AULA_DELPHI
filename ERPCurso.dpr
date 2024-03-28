@@ -8,7 +8,9 @@ uses
   Provider.Constants in 'src\providers\Provider.Constants.pas',
   VBase in 'src\views\VBase.pas' {ViewBase},
   VBaseListas in 'src\views\VBaseListas.pas' {ViewBaseListas},
-  VClientes in 'src\views\VClientes.pas' {ViewClientes};
+  VClientes in 'src\views\VClientes.pas' {ViewClientes},
+  VFornecedores in 'src\views\VFornecedores.pas' {ViewFornecedores},
+  Provider.Procedures in 'src\providers\Provider.Procedures.pas';
 
 {$R *.res}
 
@@ -20,5 +22,6 @@ begin
   Application.CreateForm(TServiceCadastro, ServiceCadastro);
   Application.CreateForm(TViewBaseListas, ViewBaseListas);
   Application.CreateForm(TViewClientes, ViewClientes);
+  Application.CreateForm(TViewFornecedores, ViewFornecedores);
   Application.Run;
 end.
