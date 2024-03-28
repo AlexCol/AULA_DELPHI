@@ -135,6 +135,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\providers\Provider.Procedures.pas"/>
+        <DCCReference Include="src\providers\Provider.Functions.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

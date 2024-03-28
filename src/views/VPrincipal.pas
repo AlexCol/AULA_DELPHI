@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, System.ImageList, Vcl.ImgList,
-  System.Actions, Vcl.ActnList, Provider.Constants, VClientes, VFornecedores;
+  System.Actions, Vcl.ActnList, Provider.Constants, VClientes, VFornecedores,
+  Provider.Functions;
 
 type
   TViewPrincipal = class(TForm)
@@ -75,6 +76,7 @@ procedure TViewPrincipal.btnClientesClick(Sender: TObject);
 begin
   ViewClientes := TViewClientes.Create(Self);
   try
+    ViewClientes.Tag := PessoasEnumToInt(tpCliente);
     ViewClientes.ShowModal;
   finally
     FreeAndNil(ViewClientes);
@@ -85,6 +87,7 @@ procedure TViewPrincipal.btnFornecedoresClick(Sender: TObject);
 begin
   ViewFornecedores := TViewFornecedores.Create(Self);
   try
+    ViewFornecedores.Tag := PessoasEnumToInt(tpFornecedores);
     ViewFornecedores.ShowModal;
   finally
     FreeAndNil(ViewFornecedores);

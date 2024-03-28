@@ -3,25 +3,8 @@ inherited ViewClientes: TViewClientes
   TextHeight = 15
   inherited pnlTopoPesquisa: TPanel
     inherited lblTitulo: TLabel
-      Width = 979
-      Height = 29
-    end
-  end
-  inherited pnlRodapePesquisa: TPanel
-    inherited btnNovo: TSpeedButton
-      OnClick = btnNovoClick
-    end
-    inherited btnEditar: TSpeedButton
-      OnClick = btnEditarClick
-    end
-    inherited btnCancelar: TSpeedButton
-      OnClick = btnCancelarClick
-    end
-    inherited btnSalvar: TSpeedButton
-      OnClick = btnSalvarClick
-    end
-    inherited btnExcluir: TSpeedButton
-      OnClick = btnExcluirClick
+      Caption = 'Clientes'
+      ExplicitWidth = 68
     end
   end
   inherited pnlBackgroundPesquisa: TPanel

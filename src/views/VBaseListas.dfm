@@ -19,7 +19,6 @@ inherited ViewBaseListas: TViewBaseListas
     ParentBackground = False
     TabOrder = 0
     OnMouseDown = pnlTopoPesquisaMouseDown
-    ExplicitWidth = 1119
     object lblTitulo: TLabel
       AlignWithMargins = True
       Left = 38
@@ -109,7 +108,6 @@ inherited ViewBaseListas: TViewBaseListas
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 1039
       object btnSair: TSpeedButton
         AlignWithMargins = True
         Left = 3
@@ -143,8 +141,6 @@ inherited ViewBaseListas: TViewBaseListas
     Color = 3080239
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 596
-    ExplicitWidth = 1119
     object btnNovo: TSpeedButton
       AlignWithMargins = True
       Left = 553
@@ -162,6 +158,7 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnNovoClick
       OnMouseEnter = btnNovoMouseEnter
       OnMouseLeave = btnNovoMouseLeave
       ExplicitLeft = 381
@@ -183,6 +180,7 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnEditarClick
       OnMouseEnter = btnNovoMouseEnter
       OnMouseLeave = btnNovoMouseLeave
       ExplicitLeft = 389
@@ -204,6 +202,7 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnCancelarClick
       OnMouseEnter = btnNovoMouseEnter
       OnMouseLeave = btnNovoMouseLeave
       ExplicitLeft = 544
@@ -225,6 +224,7 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnSalvarClick
       OnMouseEnter = btnNovoMouseEnter
       OnMouseLeave = btnNovoMouseLeave
       ExplicitLeft = 544
@@ -246,6 +246,7 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnExcluirClick
       OnMouseEnter = btnNovoMouseEnter
       OnMouseLeave = btnNovoMouseLeave
       ExplicitLeft = 520
@@ -261,8 +262,6 @@ inherited ViewBaseListas: TViewBaseListas
     Color = 3080239
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 1119
-    ExplicitHeight = 561
     object CardPanelLista: TCardPanel
       AlignWithMargins = True
       Left = 1
@@ -279,8 +278,7 @@ inherited ViewBaseListas: TViewBaseListas
       Color = clWindow
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1117
-      ExplicitHeight = 561
+      OnCardChange = CardPanelListaCardChange
       object CardPesquisa: TCard
         Left = 0
         Top = 0
@@ -293,8 +291,6 @@ inherited ViewBaseListas: TViewBaseListas
         Caption = 'CardPesquisa'
         CardIndex = 0
         TabOrder = 0
-        ExplicitWidth = 1117
-        ExplicitHeight = 561
         object pnlTituloPesquisa: TPanel
           Left = 0
           Top = 0
@@ -305,7 +301,6 @@ inherited ViewBaseListas: TViewBaseListas
           Color = 9502865
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 1117
           object lblTituloPesquisa: TLabel
             Left = 13
             Top = 6
@@ -368,7 +363,6 @@ inherited ViewBaseListas: TViewBaseListas
         Caption = 'CardCadastro'
         CardIndex = 1
         TabOrder = 1
-        ExplicitHeight = 725
       end
     end
   end

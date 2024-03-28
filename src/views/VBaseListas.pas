@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VBase, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage, Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Vcl.WinXCtrls,
-  Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Service.Cadastro, Provider.Procedures, Provider.Functions;
 
 type
   TViewBaseListas = class(TViewBase)
@@ -37,6 +37,13 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnNovoMouseEnter(Sender: TObject);
     procedure btnNovoMouseLeave(Sender: TObject);
+    procedure CardPanelListaCardChange(Sender: TObject; PrevCard,
+      NextCard: TCard);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,16 +57,20 @@ implementation
 
 {$R *.dfm}
 
-procedure TViewBaseListas.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Self.Close;
-end;
-
 procedure TViewBaseListas.FormShow(Sender: TObject);
 begin
   inherited;
   CardPanelLista.ActiveCard := CardPesquisa;
+  GET_Pessoas(Self.Tag);
+end;
+
+procedure TViewBaseListas.CardPanelListaCardChange(Sender: TObject; PrevCard,
+  NextCard: TCard);
+begin
+  inherited;
+  if CardPanelLista.ActiveCard = CardCadastro then
+    SelectFirst;
+
 end;
 
 procedure TViewBaseListas.pnlTopoPesquisaMouseDown(Sender: TObject;
@@ -71,6 +82,79 @@ begin
   ReleaseCapture;
   Perform(WM_SYSCOMMAND, sc_DragMove, 0);
 end;
+
+
+// clicks
+procedure TViewBaseListas.btnSairClick(Sender: TObject);
+begin
+  inherited;
+  Self.Close;
+end;
+
+procedure TViewBaseListas.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  if ServiceCadastro.QRY_Pessoas.State = dsInsert then
+    ShowMessage('Cadastro já em modo novo registro.')
+  else
+  begin
+    CardPanelLista.ActiveCard := CardCadastro;
+    ServiceCadastro.QRY_Pessoas.Insert;
+  end;
+end;
+
+procedure TViewBaseListas.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  if ServiceCadastro.QRY_Pessoas.State = dsInsert then
+    ShowMessage('Cadastro em modo novo registro, não é possível editar ainda.')
+  else
+  begin
+    CardPanelLista.ActiveCard := CardCadastro;
+    ServiceCadastro.QRY_Pessoas.Edit;
+  end;
+end;
+
+procedure TViewBaseListas.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  if ServiceCadastro.QRY_Pessoas.State in dsEditModes then
+  begin
+    ServiceCadastro.QRY_PessoasPES_TIPO_PESSOA.AsInteger := Self.Tag;
+    ServiceCadastro.QRY_Pessoas.Post;
+    ShowMessage(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!');
+  end
+  else
+    ShowMessage('Não há o que salvar.');
+
+  CardPanelLista.ActiveCard := CardPesquisa;
+end;
+
+procedure TViewBaseListas.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  if ServiceCadastro.QRY_Pessoas.State in dsEditModes then
+  begin
+    ShowMessage('Não é possível excluir enquanto em modo edição ou inclusão.');
+    Exit;
+  end;
+
+  if ServiceCadastro.QRY_Pessoas.RecordCount > 0 then
+  begin
+    ServiceCadastro.QRY_Pessoas.Delete;
+    ShowMessage(PessoaIntToStr(Self.Tag) + ' excluido com sucesso!');
+  end;
+  CardPanelLista.ActiveCard := CardPesquisa;
+end;
+
+procedure TViewBaseListas.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+  if ServiceCadastro.QRY_Pessoas.State in dsEditModes then
+    ServiceCadastro.QRY_Pessoas.Cancel;
+  CardPanelLista.ActiveCard := CardPesquisa;
+end;
+
 
 procedure TViewBaseListas.btnNovoMouseEnter(Sender: TObject);
 begin

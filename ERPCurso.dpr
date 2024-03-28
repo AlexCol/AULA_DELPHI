@@ -10,7 +10,8 @@ uses
   VBaseListas in 'src\views\VBaseListas.pas' {ViewBaseListas},
   VClientes in 'src\views\VClientes.pas' {ViewClientes},
   VFornecedores in 'src\views\VFornecedores.pas' {ViewFornecedores},
-  Provider.Procedures in 'src\providers\Provider.Procedures.pas';
+  Provider.Procedures in 'src\providers\Provider.Procedures.pas',
+  Provider.Functions in 'src\providers\Provider.Functions.pas';
 
 {$R *.res}
 

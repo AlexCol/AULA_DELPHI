@@ -2,49 +2,15 @@ inherited ViewFornecedores: TViewFornecedores
   Caption = 'ViewFornecedores'
   TextHeight = 15
   inherited pnlTopoPesquisa: TPanel
-    ExplicitWidth = 1100
     inherited lblTitulo: TLabel
-      Width = 979
-      Height = 29
       Caption = 'Fornecedores'
       ExplicitWidth = 115
     end
-    inherited pnlFechar: TPanel
-      ExplicitLeft = 1020
-    end
-  end
-  inherited pnlRodapePesquisa: TPanel
-    ExplicitTop = 560
-    ExplicitWidth = 1100
-    inherited btnNovo: TSpeedButton
-      OnClick = btnNovoClick
-    end
-    inherited btnEditar: TSpeedButton
-      OnClick = btnEditarClick
-    end
-    inherited btnCancelar: TSpeedButton
-      OnClick = btnCancelarClick
-    end
-    inherited btnSalvar: TSpeedButton
-      OnClick = btnSalvarClick
-    end
-    inherited btnExcluir: TSpeedButton
-      OnClick = btnExcluirClick
-    end
   end
   inherited pnlBackgroundPesquisa: TPanel
-    ExplicitWidth = 1100
-    ExplicitHeight = 525
     inherited CardPanelLista: TCardPanel
       ActiveCard = CardCadastro
-      ExplicitWidth = 1098
-      ExplicitHeight = 525
       inherited CardPesquisa: TCard
-        ExplicitWidth = 1098
-        ExplicitHeight = 525
-        inherited pnlTituloPesquisa: TPanel
-          ExplicitWidth = 1098
-        end
         inherited DBGrid1: TDBGrid
           Columns = <
             item
@@ -76,7 +42,6 @@ inherited ViewFornecedores: TViewFornecedores
         end
       end
       inherited CardCadastro: TCard
-        ExplicitHeight = 525
         object Label1: TLabel
           Left = 24
           Top = 120
@@ -184,7 +149,6 @@ inherited ViewFornecedores: TViewFornecedores
           Color = 9502865
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 8
           object lblTituloCadastro: TLabel
             Left = 13
             Top = 6
