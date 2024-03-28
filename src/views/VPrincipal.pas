@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, System.ImageList, Vcl.ImgList,
-  System.Actions, Vcl.ActnList, Provider.Constants;
+  System.Actions, Vcl.ActnList, Provider.Constants, VClientes;
 
 type
   TViewPrincipal = class(TForm)
@@ -55,6 +55,7 @@ type
     procedure lblTituloEmpresaMouseLeave(Sender: TObject);
     procedure imgUserWhiteMouseEnter(Sender: TObject);
     procedure imgUserPurpleMouseLeave(Sender: TObject);
+    procedure btnClientesClick(Sender: TObject);
   private
     procedure getMenuLine(Sender: TObject);
 
@@ -119,6 +120,16 @@ procedure TViewPrincipal.imgUserPurpleMouseLeave(Sender: TObject);
 begin
   imgUserWhite.Visible := true;
   imgUserPurple.Visible := false;
+end;
+
+procedure TViewPrincipal.btnClientesClick(Sender: TObject);
+begin
+  ViewClientes := TViewClientes.Create(Self);
+  try
+    ViewClientes.ShowModal;
+  finally
+    FreeAndNil(ViewClientes);
+  end;
 end;
 
 procedure TViewPrincipal.btnSairClick(Sender: TObject);

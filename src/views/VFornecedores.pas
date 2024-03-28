@@ -1,4 +1,4 @@
-unit ViewClientes;
+unit VFornecedores;
 
 interface
 
@@ -9,7 +9,7 @@ uses
   Vcl.Imaging.pngimage, Vcl.ExtCtrls;
 
 type
-  TViewBaseListas1 = class(TViewBaseListas)
+  TViewFornecedores = class(TViewBaseListas)
   private
     { Private declarations }
   public
@@ -17,7 +17,7 @@ type
   end;
 
 var
-  ViewBaseListas1: TViewBaseListas1;
+  ViewFornecedores: TViewFornecedores;
 
 implementation
 

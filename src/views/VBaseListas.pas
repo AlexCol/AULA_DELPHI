@@ -10,8 +10,8 @@ uses
 
 type
   TViewBaseListas = class(TViewBase)
-    pnlTopo: TPanel;
-    pnlRodape: TPanel;
+    pnlTopoPesquisa: TPanel;
+    pnlRodapePesquisa: TPanel;
     pnlIcone: TPanel;
     imgIcone: TImage;
     pnlFechar: TPanel;
@@ -23,7 +23,7 @@ type
     btnSalvar: TSpeedButton;
     btnExcluir: TSpeedButton;
     CardPanelLista: TCardPanel;
-    pnlBackground: TPanel;
+    pnlBackgroundPesquisa: TPanel;
     CardPesquisa: TCard;
     CardCadastro: TCard;
     pnlTituloPesquisa: TPanel;
@@ -32,7 +32,7 @@ type
     DBGrid1: TDBGrid;
     dsDados: TDataSource;
     procedure btnSairClick(Sender: TObject);
-    procedure pnlTopoMouseDown(Sender: TObject; Button: TMouseButton;
+    procedure pnlTopoPesquisaMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormShow(Sender: TObject);
     procedure btnNovoMouseEnter(Sender: TObject);
@@ -62,7 +62,7 @@ begin
   CardPanelLista.ActiveCard := CardPesquisa;
 end;
 
-procedure TViewBaseListas.pnlTopoMouseDown(Sender: TObject;
+procedure TViewBaseListas.pnlTopoPesquisaMouseDown(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 const
   sc_DragMove = $f012;

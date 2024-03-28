@@ -2849,6 +2849,7 @@ object ViewPrincipal: TViewPrincipal
           0000000000000000000000000000000000000000000000000000}
         Margin = 5
         ParentFont = False
+        OnClick = btnClientesClick
         OnMouseEnter = speedButtonOnMouseEnter
         OnMouseLeave = speedButtonOnMouseLeave
         ExplicitLeft = -6

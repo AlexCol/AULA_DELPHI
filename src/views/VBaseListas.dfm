@@ -1,29 +1,30 @@
 inherited ViewBaseListas: TViewBaseListas
   BorderStyle = bsNone
   Caption = 'ViewBaseListas'
-  ClientHeight = 636
-  ClientWidth = 980
+  ClientHeight = 600
+  ClientWidth = 1100
   Position = poMainFormCenter
   OnShow = FormShow
-  ExplicitWidth = 980
-  ExplicitHeight = 636
+  ExplicitWidth = 1100
+  ExplicitHeight = 600
   TextHeight = 15
-  object pnlTopo: TPanel
+  object pnlTopoPesquisa: TPanel
     Left = 0
     Top = 0
-    Width = 980
+    Width = 1100
     Height = 35
     Align = alTop
     BevelOuter = bvNone
     Color = 4194368
     ParentBackground = False
     TabOrder = 0
-    OnMouseDown = pnlTopoMouseDown
+    OnMouseDown = pnlTopoPesquisaMouseDown
+    ExplicitWidth = 1119
     object lblTitulo: TLabel
       AlignWithMargins = True
       Left = 38
       Top = 3
-      Width = 859
+      Width = 979
       Height = 29
       Cursor = crHandPoint
       Align = alClient
@@ -34,7 +35,7 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      OnMouseDown = pnlTopoMouseDown
+      OnMouseDown = pnlTopoPesquisaMouseDown
       ExplicitWidth = 70
       ExplicitHeight = 25
     end
@@ -93,7 +94,7 @@ inherited ViewBaseListas: TViewBaseListas
           66696C653A2F2F2E2F75706C6F6164732F35362F584E724946746D2F32363231
           2F746563685F656C656374726F6E6963735F69636F6E5F3135363935342E706E
           67BE0DA5540000000049454E44AE426082}
-        OnMouseDown = pnlTopoMouseDown
+        OnMouseDown = pnlTopoPesquisaMouseDown
         ExplicitLeft = -32
         ExplicitTop = -32
         ExplicitWidth = 105
@@ -101,13 +102,14 @@ inherited ViewBaseListas: TViewBaseListas
       end
     end
     object pnlFechar: TPanel
-      Left = 900
+      Left = 1020
       Top = 0
       Width = 80
       Height = 35
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitLeft = 1039
       object btnSair: TSpeedButton
         AlignWithMargins = True
         Left = 3
@@ -131,19 +133,21 @@ inherited ViewBaseListas: TViewBaseListas
       end
     end
   end
-  object pnlRodape: TPanel
+  object pnlRodapePesquisa: TPanel
     Left = 0
-    Top = 596
-    Width = 980
+    Top = 560
+    Width = 1100
     Height = 40
     Align = alBottom
     BevelOuter = bvNone
     Color = 3080239
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 596
+    ExplicitWidth = 1119
     object btnNovo: TSpeedButton
       AlignWithMargins = True
-      Left = 433
+      Left = 553
       Top = 3
       Width = 104
       Height = 34
@@ -164,7 +168,7 @@ inherited ViewBaseListas: TViewBaseListas
     end
     object btnEditar: TSpeedButton
       AlignWithMargins = True
-      Left = 543
+      Left = 663
       Top = 3
       Width = 104
       Height = 34
@@ -185,7 +189,7 @@ inherited ViewBaseListas: TViewBaseListas
     end
     object btnCancelar: TSpeedButton
       AlignWithMargins = True
-      Left = 873
+      Left = 993
       Top = 3
       Width = 104
       Height = 34
@@ -206,7 +210,7 @@ inherited ViewBaseListas: TViewBaseListas
     end
     object btnSalvar: TSpeedButton
       AlignWithMargins = True
-      Left = 653
+      Left = 773
       Top = 3
       Width = 104
       Height = 34
@@ -227,14 +231,13 @@ inherited ViewBaseListas: TViewBaseListas
     end
     object btnExcluir: TSpeedButton
       AlignWithMargins = True
-      Left = 763
+      Left = 883
       Top = 3
       Width = 104
       Height = 34
       Cursor = crHandPoint
       Align = alRight
       GroupIndex = 1
-      Down = True
       Caption = '[ EXCLUIR ]'
       Flat = True
       Font.Charset = ANSI_CHARSET
@@ -248,22 +251,24 @@ inherited ViewBaseListas: TViewBaseListas
       ExplicitLeft = 520
     end
   end
-  object pnlBackground: TPanel
+  object pnlBackgroundPesquisa: TPanel
     Left = 0
     Top = 35
-    Width = 980
-    Height = 561
+    Width = 1100
+    Height = 525
     Align = alClient
     BevelOuter = bvNone
     Color = 3080239
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 1119
+    ExplicitHeight = 561
     object CardPanelLista: TCardPanel
       AlignWithMargins = True
       Left = 1
       Top = 0
-      Width = 978
-      Height = 561
+      Width = 1098
+      Height = 525
       Margins.Left = 1
       Margins.Top = 0
       Margins.Right = 1
@@ -274,11 +279,13 @@ inherited ViewBaseListas: TViewBaseListas
       Color = clWindow
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 1117
+      ExplicitHeight = 561
       object CardPesquisa: TCard
         Left = 0
         Top = 0
-        Width = 978
-        Height = 561
+        Width = 1098
+        Height = 525
         Margins.Left = 1
         Margins.Top = 0
         Margins.Right = 1
@@ -286,18 +293,21 @@ inherited ViewBaseListas: TViewBaseListas
         Caption = 'CardPesquisa'
         CardIndex = 0
         TabOrder = 0
+        ExplicitWidth = 1117
+        ExplicitHeight = 561
         object pnlTituloPesquisa: TPanel
           Left = 0
           Top = 0
-          Width = 978
+          Width = 1098
           Height = 81
           Align = alTop
           BevelOuter = bvNone
           Color = 9502865
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 1117
           object lblTituloPesquisa: TLabel
-            Left = 5
+            Left = 13
             Top = 6
             Width = 80
             Height = 30
@@ -331,8 +341,8 @@ inherited ViewBaseListas: TViewBaseListas
           AlignWithMargins = True
           Left = 5
           Top = 86
-          Width = 968
-          Height = 470
+          Width = 1088
+          Height = 434
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5
@@ -353,11 +363,12 @@ inherited ViewBaseListas: TViewBaseListas
       object CardCadastro: TCard
         Left = 0
         Top = 0
-        Width = 978
-        Height = 561
+        Width = 1098
+        Height = 525
         Caption = 'CardCadastro'
         CardIndex = 1
         TabOrder = 1
+        ExplicitHeight = 725
       end
     end
   end

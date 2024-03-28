@@ -126,8 +126,8 @@
             <Form>ViewBaseListas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="src\views\ViewClientes.pas">
-            <Form>ViewBaseListas1</Form>
+        <DCCReference Include="src\views\VClientes.pas">
+            <Form>ViewClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
