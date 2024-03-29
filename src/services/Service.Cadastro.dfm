@@ -126,7 +126,6 @@ object ServiceCadastro: TServiceCadastro
         Value = Null
       end>
     object QRY_ProdutoPRD_CODIGO: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'PRD_CODIGO'
       Origin = 'PRD_CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -173,7 +172,6 @@ object ServiceCadastro: TServiceCadastro
     Left = 176
     Top = 144
     object QRY_Produto_FilialPRF_CODIGO: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'PRF_CODIGO'
       Origin = 'PRF_CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -190,24 +188,32 @@ object ServiceCadastro: TServiceCadastro
     object QRY_Produto_FilialPRF_CUSTOINI: TFMTBCDField
       FieldName = 'PRF_CUSTOINI'
       Origin = 'PRF_CUSTOINI'
+      currency = True
       Precision = 18
       Size = 2
     end
-    object QRY_Produto_FilialPRF_VENDAVUSTA: TFMTBCDField
-      FieldName = 'PRF_VENDAVUSTA'
-      Origin = 'PRF_VENDAVUSTA'
+    object QRY_Produto_FilialPRF_VENDAVISTA: TFMTBCDField
+      FieldName = 'PRF_VENDAVISTA'
+      Origin = 'PRF_VENDAVISTA'
+      currency = True
       Precision = 18
       Size = 2
     end
     object QRY_Produto_FilialPRF_VENDAPRAZAO: TFMTBCDField
       FieldName = 'PRF_VENDAPRAZAO'
       Origin = 'PRF_VENDAPRAZAO'
+      currency = True
       Precision = 18
       Size = 2
     end
     object QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField
       FieldName = 'PRF_SITUACAO_TRIBUTARIA'
       Origin = 'PRF_SITUACAO_TRIBUTARIA'
+    end
+    object QRY_Produto_FilialPRF_ESTOQUE: TIntegerField
+      FieldName = 'PRF_ESTOQUE'
+      Origin = 'PRF_ESTOQUE'
+      Required = True
     end
   end
   object QRY_Situacao_Tributaria: TFDQuery

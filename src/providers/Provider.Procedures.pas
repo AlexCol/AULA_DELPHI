@@ -2,9 +2,10 @@ unit Provider.Procedures;
 
 
 interface
-  uses Service.Cadastro;
+  uses Service.Cadastro, Provider.Constants;
   procedure GET_Pessoas(iTIPO: integer);
   procedure GET_Produtos;
+  procedure GET_Produtos_Filial(iCod_Produto: integer);
 
 implementation
 
@@ -24,7 +25,21 @@ begin
   ServiceCadastro.QRY_Produto.SQL.Clear;
   ServiceCadastro.QRY_Produto.SQL.Add('select * from produto');
   ServiceCadastro.QRY_Produto.SQL.Add('order by 1 asc');
-  //ServiceCadastro.QRY_Produto.Params[0].AsInteger := iTIPO;
   ServiceCadastro.QRY_Produto.Open();
+end;
+
+procedure GET_Produtos_Filial(iCod_Produto: integer);
+begin
+  ServiceCadastro.QRY_Produto_Filial.Close;
+  ServiceCadastro.QRY_Produto_Filial.SQL.Clear;
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('select * from produto_filial');
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('where prf_codigo_prd = :cod_prod');
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('and prf_filial = :filial');
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('order by 1 asc');
+
+  ServiceCadastro.QRY_Produto_Filial.ParamByName('cod_prod').AsInteger := iCod_Produto;
+  ServiceCadastro.QRY_Produto_Filial.ParamByName('filial').AsInteger := iCOD_FILIAL;
+
+  ServiceCadastro.QRY_Produto_Filial.Open();
 end;
 end.

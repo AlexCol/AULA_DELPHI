@@ -29,7 +29,7 @@ type
     pnlTituloPesquisa: TPanel;
     lblTituloPesquisa: TLabel;
     edtPesquisa: TSearchBox;
-    DBGrid1: TDBGrid;
+    DBG_dados: TDBGrid;
     dsDados: TDataSource;
     procedure btnSairClick(Sender: TObject);
     procedure pnlTopoPesquisaMouseDown(Sender: TObject; Button: TMouseButton;

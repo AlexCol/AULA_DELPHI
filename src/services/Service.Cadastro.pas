@@ -38,9 +38,8 @@ type
     QRY_Produto_FilialPRF_CODIGO_PRD: TIntegerField;
     QRY_Produto_FilialPRF_FILIAL: TIntegerField;
     QRY_Produto_FilialPRF_CUSTOINI: TFMTBCDField;
-    QRY_Produto_FilialPRF_VENDAVUSTA: TFMTBCDField;
+    QRY_Produto_FilialPRF_VENDAVISTA: TFMTBCDField;
     QRY_Produto_FilialPRF_VENDAPRAZAO: TFMTBCDField;
-    QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField;
     QRY_ProdutoPRD_CODIGO: TIntegerField;
     QRY_ProdutoPRD_NOME_COMPLETO: TStringField;
     QRY_ProdutoPRD_NOME_POPULAR: TStringField;
@@ -49,6 +48,8 @@ type
     QRY_ProdutoPRF_NCM: TStringField;
     QRY_ProdutoPRD_GRUPO: TIntegerField;
     QRY_ProdutoPRD_SUBGRUPO: TIntegerField;
+    QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField;
+    QRY_Produto_FilialPRF_ESTOQUE: TIntegerField;
   private
     { Private declarations }
   public

@@ -44,3 +44,8 @@ INSERT INTO PRODUTO (prd_nome_completo, prd_nome_popular, prd_codigo_barra, prd_
 
 INSERT INTO produto_filial (prf_codigo_prd, prf_filial, prf_custoini, prf_vendavista, prf_vendaprazao, prf_situacao_tributaria) VALUES (1, 1, 10, 25, 27, 5);
 INSERT INTO produto_filial (prf_codigo_prd, prf_filial, prf_custoini, prf_vendavista, prf_vendaprazao, prf_situacao_tributaria) VALUES (1, 2, 11, 26, 28, 1);
+INSERT INTO produto_filial (prf_codigo_prd, prf_filial, prf_custoini, prf_vendavista, prf_vendaprazao, prf_situacao_tributaria) VALUES (1, 2, 10, 25, 27, 5);
+INSERT INTO produto_filial (prf_codigo_prd, prf_filial, prf_custoini, prf_vendavista, prf_vendaprazao, prf_situacao_tributaria) VALUES (1, 2, 11, 26, 28, 1);
+
+
+alter table PRODUTO_FILIAL add prf_estoque Integer DEFAULT 0 NOT NULL;

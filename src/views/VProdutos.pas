@@ -11,7 +11,10 @@ uses
 type
   TViewProdutos = class(TViewBaseListas)
     dsProdutoFilial: TDataSource;
+    pnlDetalhes: TPanel;
+    BDG_Detalhes: TDBGrid;
     procedure FormShow(Sender: TObject);
+    procedure dsDadosDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
   public
@@ -24,6 +27,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TViewProdutos.dsDadosDataChange(Sender: TObject; Field: TField);
+begin
+  inherited;
+  GET_Produtos_Filial(ServiceCadastro.QRY_ProdutoPRD_CODIGO.AsInteger);
+end;
 
 procedure TViewProdutos.FormShow(Sender: TObject);
 begin

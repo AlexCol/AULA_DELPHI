@@ -332,7 +332,7 @@ inherited ViewBaseListas: TViewBaseListas
             TextHint = 'Digite sua pesquisa!'
           end
         end
-        object DBGrid1: TDBGrid
+        object DBG_dados: TDBGrid
           AlignWithMargins = True
           Left = 5
           Top = 86
@@ -346,7 +346,6 @@ inherited ViewBaseListas: TViewBaseListas
           Align = alClient
           BorderStyle = bsNone
           DataSource = dsDados
-          ImeName = 'DBG_dados'
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET

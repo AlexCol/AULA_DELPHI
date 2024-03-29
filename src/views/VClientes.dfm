@@ -11,7 +11,7 @@ inherited ViewClientes: TViewClientes
     inherited CardPanelLista: TCardPanel
       ActiveCard = CardCadastro
       inherited CardPesquisa: TCard
-        inherited DBGrid1: TDBGrid
+        inherited DBG_dados: TDBGrid
           Columns = <
             item
               Expanded = False
