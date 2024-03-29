@@ -3233,6 +3233,7 @@ object ViewPrincipal: TViewPrincipal
         ParentShowHint = False
         ShowHint = True
         StyleElements = [seClient, seBorder]
+        OnClick = btnProdutosClick
         OnMouseEnter = speedButtonOnMouseEnter
         OnMouseLeave = speedButtonOnMouseLeave
         ExplicitLeft = 6

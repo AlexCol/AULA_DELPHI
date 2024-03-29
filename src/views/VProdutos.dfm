@@ -9,10 +9,6 @@ inherited ViewProdutos: TViewProdutos
       ExplicitWidth = 77
     end
   end
-  inherited pnlRodapePesquisa: TPanel
-    ExplicitLeft = 8
-    ExplicitTop = 515
-  end
   inherited pnlBackgroundPesquisa: TPanel
     inherited CardPanelLista: TCardPanel
       inherited CardPesquisa: TCard

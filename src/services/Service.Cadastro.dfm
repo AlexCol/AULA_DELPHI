@@ -152,6 +152,11 @@ object ServiceCadastro: TServiceCadastro
       Origin = 'PRD_REFERENCIA'
       Size = 100
     end
+    object QRY_ProdutoPRF_NCM: TStringField
+      FieldName = 'PRF_NCM'
+      Origin = 'PRF_NCM'
+      Size = 10
+    end
     object QRY_ProdutoPRD_GRUPO: TIntegerField
       FieldName = 'PRD_GRUPO'
       Origin = 'PRD_GRUPO'
@@ -203,10 +208,6 @@ object ServiceCadastro: TServiceCadastro
     object QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField
       FieldName = 'PRF_SITUACAO_TRIBUTARIA'
       Origin = 'PRF_SITUACAO_TRIBUTARIA'
-    end
-    object QRY_Produto_FilialPRF_NCM: TIntegerField
-      FieldName = 'PRF_NCM'
-      Origin = 'PRF_NCM'
     end
   end
   object QRY_Situacao_Tributaria: TFDQuery

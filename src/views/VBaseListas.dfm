@@ -338,6 +338,7 @@ inherited ViewBaseListas: TViewBaseListas
           Top = 86
           Width = 1088
           Height = 434
+          Cursor = crHandPoint
           Margins.Left = 5
           Margins.Top = 5
           Margins.Right = 5

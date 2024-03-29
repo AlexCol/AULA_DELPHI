@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, System.ImageList, Vcl.ImgList,
   System.Actions, Vcl.ActnList, Provider.Constants, VClientes, VFornecedores,
-  Provider.Functions;
+  Provider.Functions, VProdutos;
 
 type
   TViewPrincipal = class(TForm)
@@ -58,6 +58,7 @@ type
     procedure imgUserPurpleMouseLeave(Sender: TObject);
     procedure btnClientesClick(Sender: TObject);
     procedure btnFornecedoresClick(Sender: TObject);
+    procedure btnProdutosClick(Sender: TObject);
   private
     procedure getMenuLine(Sender: TObject);
 
@@ -91,6 +92,17 @@ begin
     ViewFornecedores.ShowModal;
   finally
     FreeAndNil(ViewFornecedores);
+  end;
+end;
+
+procedure TViewPrincipal.btnProdutosClick(Sender: TObject);
+begin
+  ViewProdutos := TViewProdutos.Create(Self);
+  try
+    ViewProdutos.Tag := PessoasEnumToInt(tpCliente);
+    ViewProdutos.ShowModal;
+  finally
+    FreeAndNil(ViewProdutos);
   end;
 end;
 
