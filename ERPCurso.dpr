@@ -11,7 +11,8 @@ uses
   VClientes in 'src\views\VClientes.pas' {ViewClientes},
   VFornecedores in 'src\views\VFornecedores.pas' {ViewFornecedores},
   Provider.Procedures in 'src\providers\Provider.Procedures.pas',
-  Provider.Functions in 'src\providers\Provider.Functions.pas';
+  Provider.Functions in 'src\providers\Provider.Functions.pas',
+  VProdutos in 'src\views\VProdutos.pas' {ViewProdutos};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(TViewBaseListas, ViewBaseListas);
   Application.CreateForm(TViewClientes, ViewClientes);
   Application.CreateForm(TViewFornecedores, ViewFornecedores);
+  Application.CreateForm(TViewProdutos, ViewProdutos);
   Application.Run;
 end.

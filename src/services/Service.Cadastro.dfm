@@ -6,8 +6,8 @@ object ServiceCadastro: TServiceCadastro
     SQL.Strings = (
       'select * from pessoa'
       'where pes_codigo = :codigo')
-    Left = 24
-    Top = 24
+    Left = 40
+    Top = 16
     ParamData = <
       item
         Name = 'CODIGO'
@@ -62,8 +62,8 @@ object ServiceCadastro: TServiceCadastro
     SQL.Strings = (
       'select * from endereco'
       'where end_pessoa = :codigo')
-    Left = 120
-    Top = 24
+    Left = 40
+    Top = 80
     ParamData = <
       item
         Name = 'CODIGO'
@@ -109,6 +109,127 @@ object ServiceCadastro: TServiceCadastro
       FieldName = 'END_OBSERVACAO'
       Origin = 'END_OBSERVACAO'
       Size = 500
+    end
+  end
+  object QRY_Produto: TFDQuery
+    Connection = ServiceConexao.FDConn
+    SQL.Strings = (
+      'select * from produto'
+      'where prd_codigo = :codigo')
+    Left = 176
+    Top = 16
+    ParamData = <
+      item
+        Name = 'CODIGO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object QRY_ProdutoPRD_CODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'PRD_CODIGO'
+      Origin = 'PRD_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QRY_ProdutoPRD_NOME_COMPLETO: TStringField
+      FieldName = 'PRD_NOME_COMPLETO'
+      Origin = 'PRD_NOME_COMPLETO'
+      Size = 100
+    end
+    object QRY_ProdutoPRD_NOME_POPULAR: TStringField
+      FieldName = 'PRD_NOME_POPULAR'
+      Origin = 'PRD_NOME_POPULAR'
+      Size = 100
+    end
+    object QRY_ProdutoPRD_CODIGO_BARRA: TStringField
+      FieldName = 'PRD_CODIGO_BARRA'
+      Origin = 'PRD_CODIGO_BARRA'
+      Size = 100
+    end
+    object QRY_ProdutoPRD_REFERENCIA: TStringField
+      FieldName = 'PRD_REFERENCIA'
+      Origin = 'PRD_REFERENCIA'
+      Size = 100
+    end
+    object QRY_ProdutoPRD_GRUPO: TIntegerField
+      FieldName = 'PRD_GRUPO'
+      Origin = 'PRD_GRUPO'
+    end
+    object QRY_ProdutoPRD_SUBGRUPO: TIntegerField
+      FieldName = 'PRD_SUBGRUPO'
+      Origin = 'PRD_SUBGRUPO'
+    end
+  end
+  object QRY_Produto_Filial: TFDQuery
+    Connection = ServiceConexao.FDConn
+    SQL.Strings = (
+      'select * from produto_filial')
+    Left = 176
+    Top = 144
+    object QRY_Produto_FilialPRF_CODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'PRF_CODIGO'
+      Origin = 'PRF_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QRY_Produto_FilialPRF_CODIGO_PRD: TIntegerField
+      FieldName = 'PRF_CODIGO_PRD'
+      Origin = 'PRF_CODIGO_PRD'
+    end
+    object QRY_Produto_FilialPRF_FILIAL: TIntegerField
+      FieldName = 'PRF_FILIAL'
+      Origin = 'PRF_FILIAL'
+    end
+    object QRY_Produto_FilialPRF_CUSTOINI: TFMTBCDField
+      FieldName = 'PRF_CUSTOINI'
+      Origin = 'PRF_CUSTOINI'
+      Precision = 18
+      Size = 2
+    end
+    object QRY_Produto_FilialPRF_VENDAVUSTA: TFMTBCDField
+      FieldName = 'PRF_VENDAVUSTA'
+      Origin = 'PRF_VENDAVUSTA'
+      Precision = 18
+      Size = 2
+    end
+    object QRY_Produto_FilialPRF_VENDAPRAZAO: TFMTBCDField
+      FieldName = 'PRF_VENDAPRAZAO'
+      Origin = 'PRF_VENDAPRAZAO'
+      Precision = 18
+      Size = 2
+    end
+    object QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField
+      FieldName = 'PRF_SITUACAO_TRIBUTARIA'
+      Origin = 'PRF_SITUACAO_TRIBUTARIA'
+    end
+    object QRY_Produto_FilialPRF_NCM: TIntegerField
+      FieldName = 'PRF_NCM'
+      Origin = 'PRF_NCM'
+    end
+  end
+  object QRY_Situacao_Tributaria: TFDQuery
+    Connection = ServiceConexao.FDConn
+    SQL.Strings = (
+      'select * from situacao_tributaria')
+    Left = 176
+    Top = 80
+    object QRY_Situacao_TributariaSIT_CODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'SIT_CODIGO'
+      Origin = 'SIT_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QRY_Situacao_TributariaSIT_DESCRICAO: TStringField
+      FieldName = 'SIT_DESCRICAO'
+      Origin = 'SIT_DESCRICAO'
+      Size = 100
+    end
+    object QRY_Situacao_TributariaSIT_CST: TIntegerField
+      FieldName = 'SIT_CST'
+      Origin = 'SIT_CST'
     end
   end
 end

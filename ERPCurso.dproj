@@ -136,6 +136,10 @@
         </DCCReference>
         <DCCReference Include="src\providers\Provider.Procedures.pas"/>
         <DCCReference Include="src\providers\Provider.Functions.pas"/>
+        <DCCReference Include="src\views\VProdutos.pas">
+            <Form>ViewProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

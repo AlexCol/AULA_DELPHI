@@ -118,17 +118,28 @@ end;
 procedure TViewBaseListas.btnSalvarClick(Sender: TObject);
 begin
   inherited;
-  if ServiceCadastro.QRY_Pessoas.State in dsEditModes then
-  begin
-    ServiceCadastro.QRY_PessoasPES_TIPO_PESSOA.AsInteger := Self.Tag;
-    ServiceCadastro.QRY_Pessoas.Post;
-    ShowMessage(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!');
-  end
+  if not (dsDados.DataSet.State in dsEditModes) then
+    ShowMessage('Não há o que salvar.')
+
   else
-    ShowMessage('Não há o que salvar.');
+  begin
+    if Self.Tag > 0 then
+    begin
+      ServiceCadastro.QRY_PessoasPES_TIPO_PESSOA.AsInteger := Self.Tag;
+      ServiceCadastro.QRY_Pessoas.Post;
+      ShowMessage(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!');
+    end
+    else
+    begin
+      dsDados.DataSet.Post;
+      ShowMessage('Registro salvo com sucesso!');
+    end;
+  end;
 
   CardPanelLista.ActiveCard := CardPesquisa;
 end;
+//
+//
 
 procedure TViewBaseListas.btnExcluirClick(Sender: TObject);
 begin

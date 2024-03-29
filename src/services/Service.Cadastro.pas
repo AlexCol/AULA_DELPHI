@@ -28,6 +28,27 @@ type
     QRY_EnderecosEND_ENDERECO: TStringField;
     QRY_EnderecosEND_NUMERO: TStringField;
     QRY_EnderecosEND_OBSERVACAO: TStringField;
+    QRY_Produto: TFDQuery;
+    QRY_Produto_Filial: TFDQuery;
+    QRY_Situacao_Tributaria: TFDQuery;
+    QRY_ProdutoPRD_CODIGO: TIntegerField;
+    QRY_ProdutoPRD_NOME_COMPLETO: TStringField;
+    QRY_ProdutoPRD_NOME_POPULAR: TStringField;
+    QRY_ProdutoPRD_CODIGO_BARRA: TStringField;
+    QRY_ProdutoPRD_REFERENCIA: TStringField;
+    QRY_ProdutoPRD_GRUPO: TIntegerField;
+    QRY_ProdutoPRD_SUBGRUPO: TIntegerField;
+    QRY_Situacao_TributariaSIT_CODIGO: TIntegerField;
+    QRY_Situacao_TributariaSIT_DESCRICAO: TStringField;
+    QRY_Situacao_TributariaSIT_CST: TIntegerField;
+    QRY_Produto_FilialPRF_CODIGO: TIntegerField;
+    QRY_Produto_FilialPRF_CODIGO_PRD: TIntegerField;
+    QRY_Produto_FilialPRF_FILIAL: TIntegerField;
+    QRY_Produto_FilialPRF_CUSTOINI: TFMTBCDField;
+    QRY_Produto_FilialPRF_VENDAVUSTA: TFMTBCDField;
+    QRY_Produto_FilialPRF_VENDAPRAZAO: TFMTBCDField;
+    QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField;
+    QRY_Produto_FilialPRF_NCM: TIntegerField;
   private
     { Private declarations }
   public
