@@ -126,6 +126,7 @@ object ServiceCadastro: TServiceCadastro
         Value = Null
       end>
     object QRY_ProdutoPRD_CODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'PRD_CODIGO'
       Origin = 'PRD_CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -172,6 +173,7 @@ object ServiceCadastro: TServiceCadastro
     Left = 176
     Top = 144
     object QRY_Produto_FilialPRF_CODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'PRF_CODIGO'
       Origin = 'PRF_CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]

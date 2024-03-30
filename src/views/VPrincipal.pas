@@ -99,7 +99,7 @@ procedure TViewPrincipal.btnProdutosClick(Sender: TObject);
 begin
   ViewProdutos := TViewProdutos.Create(Self);
   try
-    ViewProdutos.Tag := PessoasEnumToInt(tpCliente);
+    ViewProdutos.sTELA := TelasEnumToString(tpProduto);
     ViewProdutos.ShowModal;
   finally
     FreeAndNil(ViewProdutos);

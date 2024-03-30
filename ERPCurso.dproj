@@ -140,6 +140,14 @@
             <Form>ViewProdutos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\views\VMensagens.pas">
+            <Form>ViewMensagens</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\views\VFundo.pas">
+            <Form>ViewFundo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

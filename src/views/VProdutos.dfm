@@ -3,14 +3,13 @@ inherited ViewProdutos: TViewProdutos
   TextHeight = 15
   inherited pnlTopoPesquisa: TPanel
     inherited lblTitulo: TLabel
-      Width = 979
-      Height = 29
       Caption = 'Produtos'
       ExplicitWidth = 77
     end
   end
   inherited pnlBackgroundPesquisa: TPanel
     inherited CardPanelLista: TCardPanel
+      ActiveCard = CardCadastro
       inherited CardPesquisa: TCard
         inherited DBG_dados: TDBGrid
           Height = 284
@@ -116,17 +115,185 @@ inherited ViewProdutos: TViewProdutos
           end
         end
       end
+      inherited CardCadastro: TCard
+        ExplicitTop = -3
+        object Label1: TLabel
+          Left = 13
+          Top = 112
+          Width = 38
+          Height = 15
+          Caption = 'C'#243'digo'
+          FocusControl = edtPRD_CODIGO
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 173
+          Top = 112
+          Width = 91
+          Height = 15
+          Caption = 'Nome Completo'
+          FocusControl = edtPRD_NOME_COMPLETO
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 579
+          Top = 112
+          Width = 79
+          Height = 15
+          Caption = 'Nome Popular'
+          FocusControl = edtPRD_NOME_POPULAR
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 13
+          Top = 168
+          Width = 93
+          Height = 15
+          Caption = 'C'#243'digo de Barras'
+          FocusControl = edtPRD_CODIGO_BARRA
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 219
+          Top = 168
+          Width = 61
+          Height = 15
+          Caption = 'Refer'#234'ncia'
+          FocusControl = edtPRD_REFERENCIA
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label6: TLabel
+          Left = 625
+          Top = 173
+          Width = 27
+          Height = 15
+          Caption = 'NCM'
+          FocusControl = edtPRD_NCM
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object pnlTituloCadastro: TPanel
+          Left = 0
+          Top = 0
+          Width = 1098
+          Height = 81
+          Align = alTop
+          BevelOuter = bvNone
+          Color = 9502865
+          ParentBackground = False
+          TabOrder = 0
+          ExplicitTop = 8
+          object lblTituloCadastro: TLabel
+            Left = 13
+            Top = 6
+            Width = 200
+            Height = 30
+            Alignment = taCenter
+            Caption = 'Cadastro de Produtos'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -21
+            Font.Name = 'Segoe UI Semilight'
+            Font.Style = []
+            ParentFont = False
+          end
+        end
+        object edtPRD_CODIGO: TDBEdit
+          Left = 13
+          Top = 128
+          Width = 154
+          Height = 23
+          DataField = 'PRD_CODIGO'
+          DataSource = dsDados
+          ReadOnly = True
+          TabOrder = 1
+        end
+        object edtPRD_NOME_COMPLETO: TDBEdit
+          Left = 173
+          Top = 128
+          Width = 400
+          Height = 23
+          DataField = 'PRD_NOME_COMPLETO'
+          DataSource = dsDados
+          TabOrder = 2
+        end
+        object edtPRD_NOME_POPULAR: TDBEdit
+          Left = 579
+          Top = 128
+          Width = 400
+          Height = 23
+          DataField = 'PRD_NOME_POPULAR'
+          DataSource = dsDados
+          TabOrder = 3
+        end
+        object edtPRD_CODIGO_BARRA: TDBEdit
+          Left = 13
+          Top = 189
+          Width = 200
+          Height = 23
+          DataField = 'PRD_CODIGO_BARRA'
+          DataSource = dsDados
+          TabOrder = 4
+        end
+        object edtPRD_REFERENCIA: TDBEdit
+          Left = 219
+          Top = 189
+          Width = 400
+          Height = 23
+          DataField = 'PRD_REFERENCIA'
+          DataSource = dsDados
+          TabOrder = 5
+        end
+        object edtPRD_NCM: TDBEdit
+          Left = 625
+          Top = 189
+          Width = 354
+          Height = 23
+          DataField = 'PRF_NCM'
+          DataSource = dsDados
+          TabOrder = 6
+        end
+      end
     end
   end
   inherited dsDados: TDataSource
     DataSet = ServiceCadastro.QRY_Produto
     OnDataChange = dsDadosDataChange
-    Left = 72
-    Top = 176
+    Left = 160
+    Top = 560
   end
   object dsProdutoFilial: TDataSource
     DataSet = ServiceCadastro.QRY_Produto_Filial
-    Left = 72
-    Top = 464
+    Left = 64
+    Top = 560
   end
 end

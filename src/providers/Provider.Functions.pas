@@ -5,10 +5,12 @@ uses SysUtils, StrUtils, Classes;
 
 type
   TPCPessoas = (tpCliente, tpFornecedores, tpFuncionarios);
+  TCPTelas = (tpProduto, tpCaixa, tpGrupo, tpSubGrupo);
 
 
   function PessoaIntToStr(codigoTipoPessoa: integer): string;
   function PessoasEnumToInt(const t: TPCPessoas): integer;
+  function TelasEnumToString(const t: TCPTelas): string;
 implementation
 
   function PessoaIntToStr(codigoTipoPessoa: integer): string;
@@ -30,6 +32,16 @@ implementation
       tpFuncionarios: result := 3;
     else
       result := 0;
+    end;
+  end;
+
+  function TelasEnumToString(const t: TCPTelas): string;
+  begin
+    case t of
+      tpProduto: result := 'Produto';
+      tpCaixa: result := 'Caixa';
+      tpGrupo: result := 'Grupo';
+      tpSubGrupo: result := 'SubGrupo';
     end;
   end;
 end.

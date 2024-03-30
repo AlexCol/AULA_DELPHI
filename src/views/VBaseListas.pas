@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VBase, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage, Vcl.Buttons, Vcl.StdCtrls, Vcl.WinXPanels, Vcl.WinXCtrls,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, Service.Cadastro, Provider.Procedures, Provider.Functions;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Service.Cadastro, Provider.Procedures, Provider.Functions,
+  VMensagens;
 
 type
   TViewBaseListas = class(TViewBase)
@@ -47,7 +48,8 @@ type
   private
     { Private declarations }
   public
-    { Public declarations }
+    var
+      sTELA: string;
   end;
 
 var
@@ -94,24 +96,30 @@ end;
 procedure TViewBaseListas.btnNovoClick(Sender: TObject);
 begin
   inherited;
-  if ServiceCadastro.QRY_Pessoas.State = dsInsert then
-    ShowMessage('Cadastro já em modo novo registro.')
+  if dsDados.DataSet.State = dsInsert then
+    TViewMensagens.Mensagem('Cadastro já em modo novo registro.',
+                        'Alerta',
+                        'A',
+                        [mbOk])
   else
   begin
     CardPanelLista.ActiveCard := CardCadastro;
-    ServiceCadastro.QRY_Pessoas.Insert;
+    dsDados.DataSet.Insert;
   end;
 end;
 
 procedure TViewBaseListas.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  if ServiceCadastro.QRY_Pessoas.State = dsInsert then
-    ShowMessage('Cadastro em modo novo registro, não é possível editar ainda.')
+  if dsDados.DataSet.State = dsInsert then
+    TViewMensagens.Mensagem('Cadastro em modo novo registro, não é possível editar ainda.',
+                            'Alerta',
+                            'A',
+                            [mbOk])
   else
   begin
     CardPanelLista.ActiveCard := CardCadastro;
-    ServiceCadastro.QRY_Pessoas.Edit;
+    dsDados.DataSet.Edit;
   end;
 end;
 
@@ -119,41 +127,47 @@ procedure TViewBaseListas.btnSalvarClick(Sender: TObject);
 begin
   inherited;
   if not (dsDados.DataSet.State in dsEditModes) then
-    ShowMessage('Não há o que salvar.')
-
+    TViewMensagens.Mensagem('Não há o que salvar.', 'Alerta', 'A', [mbOk])
   else
   begin
     if Self.Tag > 0 then
     begin
       ServiceCadastro.QRY_PessoasPES_TIPO_PESSOA.AsInteger := Self.Tag;
       ServiceCadastro.QRY_Pessoas.Post;
-      ShowMessage(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!');
+      if Self.Tag > 0 then
+        TViewMensagens.Mensagem(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!', 'Salvar', 'I', [mbOk])
+      else
+        TViewMensagens.Mensagem('Registro salvo com sucesso!', 'Salvar', 'I', [mbOk]);
     end
     else
     begin
       dsDados.DataSet.Post;
-      ShowMessage('Registro salvo com sucesso!');
+      TViewMensagens.Mensagem(sTELA + ' salvo com sucesso!', 'Salvar', 'I', [mbOk]);
     end;
   end;
 
   CardPanelLista.ActiveCard := CardPesquisa;
 end;
-//
-//
 
 procedure TViewBaseListas.btnExcluirClick(Sender: TObject);
 begin
   inherited;
-  if ServiceCadastro.QRY_Pessoas.State in dsEditModes then
+  if dsDados.DataSet.State in dsEditModes then
   begin
-    ShowMessage('Não é possível excluir enquanto em modo edição ou inclusão.');
+    TViewMensagens.Mensagem('Não é possível excluir enquanto em modo edição ou inclusão.', 'Alerta', 'A', [mbOk]);
     Exit;
   end;
 
-  if ServiceCadastro.QRY_Pessoas.RecordCount > 0 then
+  if not TViewMensagens.Mensagem('Deseja mesmo excluir?', 'Exclusão', 'A', [mbNao, mbSim]) then
+    Exit;
+
+  if dsDados.DataSet.RecordCount > 0 then
   begin
-    ServiceCadastro.QRY_Pessoas.Delete;
-    ShowMessage(PessoaIntToStr(Self.Tag) + ' excluido com sucesso!');
+    dsDados.DataSet.Delete;
+    if Self.Tag > 0 then
+      TViewMensagens.Mensagem(PessoaIntToStr(Self.Tag) + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk])
+    else
+      TViewMensagens.Mensagem(sTELA + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk]);
   end;
   CardPanelLista.ActiveCard := CardPesquisa;
 end;
@@ -161,8 +175,8 @@ end;
 procedure TViewBaseListas.btnCancelarClick(Sender: TObject);
 begin
   inherited;
-  if ServiceCadastro.QRY_Pessoas.State in dsEditModes then
-    ServiceCadastro.QRY_Pessoas.Cancel;
+  if dsDados.DataSet.State in dsEditModes then
+    dsDados.DataSet.Cancel;
   CardPanelLista.ActiveCard := CardPesquisa;
 end;
 

@@ -12,7 +12,9 @@ uses
   VFornecedores in 'src\views\VFornecedores.pas' {ViewFornecedores},
   Provider.Procedures in 'src\providers\Provider.Procedures.pas',
   Provider.Functions in 'src\providers\Provider.Functions.pas',
-  VProdutos in 'src\views\VProdutos.pas' {ViewProdutos};
+  VProdutos in 'src\views\VProdutos.pas' {ViewProdutos},
+  VMensagens in 'src\views\VMensagens.pas' {ViewMensagens},
+  VFundo in 'src\views\VFundo.pas' {ViewFundo};
 
 {$R *.res}
 
@@ -26,5 +28,7 @@ begin
   Application.CreateForm(TViewClientes, ViewClientes);
   Application.CreateForm(TViewFornecedores, ViewFornecedores);
   Application.CreateForm(TViewProdutos, ViewProdutos);
+  Application.CreateForm(TViewMensagens, ViewMensagens);
+  Application.CreateForm(TViewFundo, ViewFundo);
   Application.Run;
 end.
