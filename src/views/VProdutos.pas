@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VBaseListas, Data.DB, Vcl.Grids,
   Vcl.DBGrids, Vcl.StdCtrls, Vcl.WinXCtrls, Vcl.WinXPanels, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.ExtCtrls, Service.Cadastro, Provider.Procedures,
-  Vcl.Mask, Vcl.DBCtrls;
+  Vcl.Mask, Vcl.DBCtrls, Provider.Constants, VMensagens;
 
 type
   TViewProdutos = class(TViewBaseListas)
@@ -28,9 +28,20 @@ type
     edtPRD_REFERENCIA: TDBEdit;
     Label6: TLabel;
     edtPRD_NCM: TDBEdit;
+    Label7: TLabel;
+    edtPRF_CUSTOINI: TDBEdit;
+    Label8: TLabel;
+    edtPRF_VENDAVISTA: TDBEdit;
+    Label9: TLabel;
+    edtPRF_VENDAPRAZAO: TDBEdit;
+    Label10: TLabel;
+    edtPRF_ESTOQUE: TDBEdit;
+    Label11: TLabel;
     procedure FormShow(Sender: TObject);
     procedure dsDadosDataChange(Sender: TObject; Field: TField);
     procedure btnNovoClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,17 +55,44 @@ implementation
 
 {$R *.dfm}
 
+
+
 procedure TViewProdutos.btnNovoClick(Sender: TObject);
 begin
   inherited;
   ServiceCadastro.QRY_ProdutoPRD_GRUPO.AsInteger := 1;
   ServiceCadastro.QRY_ProdutoPRD_SUBGRUPO.AsInteger := 1;
+  ServiceCadastro.QRY_Produto_Filial.Open();
+  ServiceCadastro.QRY_Produto_Filial.Insert;
+end;
+
+procedure TViewProdutos.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  dsProdutoFilial.DataSet.Edit;
+end;
+
+procedure TViewProdutos.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+
+  dsDados.DataSet.Post;
+
+  ServiceCadastro.QRY_Produto_Filial.Edit;
+  ServiceCadastro.QRY_Produto_FilialPRF_CODIGO_PRD.AsInteger := ServiceCadastro.QRY_ProdutoPRD_CODIGO.AsInteger;
+  ServiceCadastro.QRY_Produto_FilialPRF_FILIAL.AsInteger := iCOD_FILIAL;
+  ServiceCadastro.QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA.AsInteger := 1;
+  ServiceCadastro.QRY_Produto_Filial.Post;
+
+  TViewMensagens.Mensagem('Produto salvo com sucesso!', 'Salvar', 'I', [mbOk]);
+  //ServiceCadastro.QRY_Produto_Filial
 end;
 
 procedure TViewProdutos.dsDadosDataChange(Sender: TObject; Field: TField);
 begin
   inherited;
-  GET_Produtos_Filial(ServiceCadastro.QRY_ProdutoPRD_CODIGO.AsInteger);
+//  if dsDados.State in (dsEditModes) then
+//    GET_Produtos_Filial(ServiceCadastro.QRY_ProdutoPRD_CODIGO.AsInteger, iCOD_FILIAL);
 end;
 
 procedure TViewProdutos.FormShow(Sender: TObject);

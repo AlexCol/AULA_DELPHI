@@ -141,8 +141,8 @@ begin
     end
     else
     begin
-      dsDados.DataSet.Post;
-      TViewMensagens.Mensagem(sTELA + ' salvo com sucesso!', 'Salvar', 'I', [mbOk]);
+      //dsDados.DataSet.Post;
+      //TViewMensagens.Mensagem(sTELA + ' salvo com sucesso!', 'Salvar', 'I', [mbOk]);
     end;
   end;
 

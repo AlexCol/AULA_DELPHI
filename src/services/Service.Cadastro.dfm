@@ -112,6 +112,7 @@ object ServiceCadastro: TServiceCadastro
     end
   end
   object QRY_Produto: TFDQuery
+    AfterScroll = QRY_ProdutoAfterScroll
     Connection = ServiceConexao.FDConn
     SQL.Strings = (
       'select * from produto'

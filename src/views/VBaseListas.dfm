@@ -3,7 +3,7 @@ inherited ViewBaseListas: TViewBaseListas
   Caption = 'ViewBaseListas'
   ClientHeight = 600
   ClientWidth = 1100
-  Position = poMainFormCenter
+  Position = poDefault
   OnShow = FormShow
   ExplicitWidth = 1100
   ExplicitHeight = 600
@@ -23,8 +23,8 @@ inherited ViewBaseListas: TViewBaseListas
       AlignWithMargins = True
       Left = 38
       Top = 3
-      Width = 979
-      Height = 29
+      Width = 70
+      Height = 25
       Cursor = crHandPoint
       Align = alClient
       Caption = 'lblTitulo'
@@ -35,8 +35,6 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Style = [fsBold]
       ParentFont = False
       OnMouseDown = pnlTopoPesquisaMouseDown
-      ExplicitWidth = 70
-      ExplicitHeight = 25
     end
     object pnlIcone: TPanel
       Left = 0

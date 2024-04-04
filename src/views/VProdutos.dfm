@@ -3,8 +3,10 @@ inherited ViewProdutos: TViewProdutos
   TextHeight = 15
   inherited pnlTopoPesquisa: TPanel
     inherited lblTitulo: TLabel
+      Width = 979
+      Height = 29
       Caption = 'Produtos'
-      ExplicitWidth = 77
+      ExplicitWidth = 979
     end
   end
   inherited pnlBackgroundPesquisa: TPanel
@@ -116,7 +118,6 @@ inherited ViewProdutos: TViewProdutos
         end
       end
       inherited CardCadastro: TCard
-        ExplicitTop = -3
         object Label1: TLabel
           Left = 13
           Top = 112
@@ -201,6 +202,75 @@ inherited ViewProdutos: TViewProdutos
           Font.Style = [fsBold]
           ParentFont = False
         end
+        object Label7: TLabel
+          Left = 37
+          Top = 373
+          Width = 66
+          Height = 15
+          Caption = 'Custo Inicial'
+          FocusControl = edtPRF_CUSTOINI
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label8: TLabel
+          Left = 192
+          Top = 373
+          Width = 64
+          Height = 15
+          Caption = 'Venda Vista'
+          FocusControl = edtPRF_VENDAVISTA
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label9: TLabel
+          Left = 344
+          Top = 373
+          Width = 68
+          Height = 15
+          Caption = 'Venda Prazo'
+          FocusControl = edtPRF_VENDAPRAZAO
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 499
+          Top = 373
+          Width = 44
+          Height = 15
+          Caption = 'Estoque'
+          FocusControl = edtPRF_ESTOQUE
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label11: TLabel
+          Left = 37
+          Top = 336
+          Width = 157
+          Height = 21
+          Caption = 'Detalhes do Produto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
         object pnlTituloCadastro: TPanel
           Left = 0
           Top = 0
@@ -211,7 +281,6 @@ inherited ViewProdutos: TViewProdutos
           Color = 9502865
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 8
           object lblTituloCadastro: TLabel
             Left = 13
             Top = 6
@@ -282,18 +351,54 @@ inherited ViewProdutos: TViewProdutos
           DataSource = dsDados
           TabOrder = 6
         end
+        object edtPRF_CUSTOINI: TDBEdit
+          Left = 37
+          Top = 389
+          Width = 130
+          Height = 23
+          DataField = 'PRF_CUSTOINI'
+          DataSource = dsProdutoFilial
+          TabOrder = 7
+        end
+        object edtPRF_VENDAVISTA: TDBEdit
+          Left = 192
+          Top = 389
+          Width = 130
+          Height = 23
+          DataField = 'PRF_VENDAVISTA'
+          DataSource = dsProdutoFilial
+          TabOrder = 8
+        end
+        object edtPRF_VENDAPRAZAO: TDBEdit
+          Left = 344
+          Top = 389
+          Width = 130
+          Height = 23
+          DataField = 'PRF_VENDAPRAZAO'
+          DataSource = dsProdutoFilial
+          TabOrder = 9
+        end
+        object edtPRF_ESTOQUE: TDBEdit
+          Left = 499
+          Top = 389
+          Width = 130
+          Height = 23
+          DataField = 'PRF_ESTOQUE'
+          DataSource = dsProdutoFilial
+          TabOrder = 10
+        end
       end
     end
   end
   inherited dsDados: TDataSource
     DataSet = ServiceCadastro.QRY_Produto
     OnDataChange = dsDadosDataChange
-    Left = 160
-    Top = 560
+    Left = 120
+    Top = 552
   end
   object dsProdutoFilial: TDataSource
     DataSet = ServiceCadastro.QRY_Produto_Filial
-    Left = 64
-    Top = 560
+    Left = 48
+    Top = 552
   end
 end

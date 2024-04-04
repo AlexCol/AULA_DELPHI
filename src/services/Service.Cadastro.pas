@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Classes, Service.Conexao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Provider.Procedures,
+  Provider.Constants;
 
 type
   TServiceCadastro = class(TDataModule)
@@ -50,6 +51,7 @@ type
     QRY_ProdutoPRD_SUBGRUPO: TIntegerField;
     QRY_Produto_FilialPRF_SITUACAO_TRIBUTARIA: TIntegerField;
     QRY_Produto_FilialPRF_ESTOQUE: TIntegerField;
+    procedure QRY_ProdutoAfterScroll(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -64,5 +66,10 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TServiceCadastro.QRY_ProdutoAfterScroll(DataSet: TDataSet);
+begin
+  GET_Produtos_Filial(ServiceCadastro.QRY_ProdutoPRD_CODIGO.AsInteger, iCOD_FILIAL);
+end;
 
 end.

@@ -1,13 +1,13 @@
 unit Provider.Procedures;
 
-
 interface
-  uses Service.Cadastro, Provider.Constants;
+  uses Provider.Constants;
   procedure GET_Pessoas(iTIPO: integer);
   procedure GET_Produtos;
-  procedure GET_Produtos_Filial(iCod_Produto: integer);
-
+  procedure GET_Produtos_Filial(iCod_Produto: integer); overload;
+  procedure GET_Produtos_Filial(iCod_Produto, iCod_Filial: integer); overload;
 implementation
+  uses Service.Cadastro;
 
 procedure GET_Pessoas(iTIPO: integer);
 begin
@@ -34,11 +34,22 @@ begin
   ServiceCadastro.QRY_Produto_Filial.SQL.Clear;
   ServiceCadastro.QRY_Produto_Filial.SQL.Add('select * from produto_filial');
   ServiceCadastro.QRY_Produto_Filial.SQL.Add('where prf_codigo_prd = :cod_prod');
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('order by 1 asc');
+  ServiceCadastro.QRY_Produto_Filial.ParamByName('cod_prod').AsInteger := iCod_Produto;
+  ServiceCadastro.QRY_Produto_Filial.Open();
+end;
+
+procedure GET_Produtos_Filial(iCod_Produto, iCod_Filial: integer);
+begin
+  ServiceCadastro.QRY_Produto_Filial.Close;
+  ServiceCadastro.QRY_Produto_Filial.SQL.Clear;
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('select * from produto_filial');
+  ServiceCadastro.QRY_Produto_Filial.SQL.Add('where prf_codigo_prd = :cod_prod');
   ServiceCadastro.QRY_Produto_Filial.SQL.Add('and prf_filial = :filial');
   ServiceCadastro.QRY_Produto_Filial.SQL.Add('order by 1 asc');
 
   ServiceCadastro.QRY_Produto_Filial.ParamByName('cod_prod').AsInteger := iCod_Produto;
-  ServiceCadastro.QRY_Produto_Filial.ParamByName('filial').AsInteger := iCOD_FILIAL;
+  ServiceCadastro.QRY_Produto_Filial.ParamByName('filial').AsInteger := iCod_Filial;
 
   ServiceCadastro.QRY_Produto_Filial.Open();
 end;

@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
   Vcl.Imaging.pngimage, Vcl.Imaging.jpeg, System.ImageList, Vcl.ImgList,
   System.Actions, Vcl.ActnList, Provider.Constants, VClientes, VFornecedores,
-  Provider.Functions, VProdutos;
+  Provider.Functions, VProdutos, VBaseListas;
 
 type
   TViewPrincipal = class(TForm)
@@ -61,6 +61,9 @@ type
     procedure btnProdutosClick(Sender: TObject);
   private
     procedure getMenuLine(Sender: TObject);
+    procedure OpenView(view: TViewBaseListas; tpPessoa: TPCPessoas); overload;
+    procedure OpenView(view: TViewBaseListas; sTela: TCPTelas); overload;
+    procedure FormatAndOpen(view: TViewBaseListas);
 
   public
     { Public declarations }
@@ -76,39 +79,48 @@ implementation
 procedure TViewPrincipal.btnClientesClick(Sender: TObject);
 begin
   ViewClientes := TViewClientes.Create(Self);
-  try
-    ViewClientes.Tag := PessoasEnumToInt(tpCliente);
-    ViewClientes.ShowModal;
-  finally
-    FreeAndNil(ViewClientes);
-  end;
+  OpenView(ViewClientes, tpCliente);
 end;
 
 procedure TViewPrincipal.btnFornecedoresClick(Sender: TObject);
 begin
   ViewFornecedores := TViewFornecedores.Create(Self);
-  try
-    ViewFornecedores.Tag := PessoasEnumToInt(tpFornecedores);
-    ViewFornecedores.ShowModal;
-  finally
-    FreeAndNil(ViewFornecedores);
-  end;
+  OpenView(ViewFornecedores, tpFornecedores);
 end;
 
 procedure TViewPrincipal.btnProdutosClick(Sender: TObject);
 begin
   ViewProdutos := TViewProdutos.Create(Self);
-  try
-    ViewProdutos.sTELA := TelasEnumToString(tpProduto);
-    ViewProdutos.ShowModal;
-  finally
-    FreeAndNil(ViewProdutos);
-  end;
+  OpenView(ViewProdutos, tpProduto);
 end;
 
 procedure TViewPrincipal.btnSairClick(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+//abertura de views
+procedure TViewPrincipal.OpenView(view: TViewBaseListas; tpPessoa: TPCPessoas);
+begin
+  view.Tag := PessoasEnumToInt(tpPessoa);
+  FormatAndOpen(view);
+end;
+
+procedure TViewPrincipal.OpenView(view: TViewBaseListas; sTela: TCPTelas);
+begin
+  view.sTELA := TelasEnumToString(sTela);
+  FormatAndOpen(view);
+end;
+
+procedure TViewPrincipal.FormatAndOpen(view: TViewBaseListas);
+begin
+  try
+    view.Top := Round(pnlTopo.Height + ((pnlBackPrincipal.Height - view.Height)/2));
+    view.Left :=  Round(pnlMenu.Width + ((pnlBackPrincipal.Width - view.Width)/2));
+    view.ShowModal;
+  finally
+    FreeAndNil(view);
+  end;
 end;
 
 
@@ -148,6 +160,8 @@ procedure TViewPrincipal.lblTituloEmpresaMouseLeave(Sender: TObject);
 begin
   lblTituloEmpresa.Font.Color := clWhite;
 end;
+
+
 
 procedure TViewPrincipal.imgUserWhiteMouseEnter(Sender: TObject);
 begin
