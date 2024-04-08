@@ -6,7 +6,7 @@ inherited ViewProdutos: TViewProdutos
       Width = 979
       Height = 29
       Caption = 'Produtos'
-      ExplicitWidth = 979
+      ExplicitWidth = 77
     end
   end
   inherited pnlBackgroundPesquisa: TPanel
@@ -392,7 +392,6 @@ inherited ViewProdutos: TViewProdutos
   end
   inherited dsDados: TDataSource
     DataSet = ServiceCadastro.QRY_Produto
-    OnDataChange = dsDadosDataChange
     Left = 120
     Top = 552
   end

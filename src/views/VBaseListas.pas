@@ -135,9 +135,9 @@ begin
       ServiceCadastro.QRY_PessoasPES_TIPO_PESSOA.AsInteger := Self.Tag;
       ServiceCadastro.QRY_Pessoas.Post;
       if Self.Tag > 0 then
-        TViewMensagens.Mensagem(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!', 'Salvar', 'I', [mbOk])
+        TViewMensagens.Mensagem(PessoaIntToStr(Self.Tag) + ' salvo com sucesso!', 'Sucesso', 'I', [mbOk])
       else
-        TViewMensagens.Mensagem('Registro salvo com sucesso!', 'Salvar', 'I', [mbOk]);
+        TViewMensagens.Mensagem('Registro salvo com sucesso!', 'Sucesso', 'I', [mbOk]);
     end
     else
     begin
@@ -158,16 +158,19 @@ begin
     Exit;
   end;
 
-  if not TViewMensagens.Mensagem('Deseja mesmo excluir?', 'Exclusão', 'A', [mbNao, mbSim]) then
+  if not TViewMensagens.Mensagem('Deseja mesmo excluir?', 'Alerta', 'A', [mbNao, mbSim]) then
     Exit;
 
-  if dsDados.DataSet.RecordCount > 0 then
+  if dsDados.DataSet.RecordCount <= 0 then
+  begin
+    TViewMensagens.Mensagem('Não há dados para excluir.', 'Alerta', 'A', [mbOk]);
+    Exit;
+  end;
+
+  if Self.Tag > 0 then
   begin
     dsDados.DataSet.Delete;
-    if Self.Tag > 0 then
-      TViewMensagens.Mensagem(PessoaIntToStr(Self.Tag) + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk])
-    else
-      TViewMensagens.Mensagem(sTELA + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk]);
+    TViewMensagens.Mensagem(PessoaIntToStr(Self.Tag) + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk]);
   end;
   CardPanelLista.ActiveCard := CardPesquisa;
 end;

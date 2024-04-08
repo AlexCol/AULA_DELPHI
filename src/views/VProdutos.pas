@@ -38,10 +38,10 @@ type
     edtPRF_ESTOQUE: TDBEdit;
     Label11: TLabel;
     procedure FormShow(Sender: TObject);
-    procedure dsDadosDataChange(Sender: TObject; Field: TField);
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,8 +54,6 @@ var
 implementation
 
 {$R *.dfm}
-
-
 
 procedure TViewProdutos.btnNovoClick(Sender: TObject);
 begin
@@ -88,11 +86,12 @@ begin
   //ServiceCadastro.QRY_Produto_Filial
 end;
 
-procedure TViewProdutos.dsDadosDataChange(Sender: TObject; Field: TField);
+procedure TViewProdutos.btnExcluirClick(Sender: TObject);
 begin
   inherited;
-//  if dsDados.State in (dsEditModes) then
-//    GET_Produtos_Filial(ServiceCadastro.QRY_ProdutoPRD_CODIGO.AsInteger, iCOD_FILIAL);
+  dsProdutoFilial.DataSet.Delete;
+  dsDados.DataSet.Delete;
+  TViewMensagens.Mensagem(sTELA + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk]);
 end;
 
 procedure TViewProdutos.FormShow(Sender: TObject);
