@@ -23,8 +23,8 @@ inherited ViewBaseListas: TViewBaseListas
       AlignWithMargins = True
       Left = 38
       Top = 3
-      Width = 70
-      Height = 25
+      Width = 979
+      Height = 29
       Cursor = crHandPoint
       Align = alClient
       Caption = 'lblTitulo'
@@ -35,6 +35,8 @@ inherited ViewBaseListas: TViewBaseListas
       Font.Style = [fsBold]
       ParentFont = False
       OnMouseDown = pnlTopoPesquisaMouseDown
+      ExplicitWidth = 70
+      ExplicitHeight = 25
     end
     object pnlIcone: TPanel
       Left = 0
@@ -351,6 +353,7 @@ inherited ViewBaseListas: TViewBaseListas
           TitleFont.Height = -12
           TitleFont.Name = 'Segoe UI'
           TitleFont.Style = []
+          OnDblClick = DBG_dadosDblClick
         end
       end
       object CardCadastro: TCard
@@ -361,6 +364,36 @@ inherited ViewBaseListas: TViewBaseListas
         Caption = 'CardCadastro'
         CardIndex = 1
         TabOrder = 1
+        object pnlTituloCadastro: TPanel
+          Left = 0
+          Top = 0
+          Width = 1098
+          Height = 81
+          Align = alTop
+          BevelOuter = bvNone
+          Color = 9502865
+          ParentBackground = False
+          TabOrder = 0
+          object lblTituloCadastro: TLabel
+            AlignWithMargins = True
+            Left = 3
+            Top = 20
+            Width = 212
+            Height = 61
+            Margins.Top = 20
+            Margins.Bottom = 0
+            Align = alLeft
+            Alignment = taCenter
+            Caption = 'Titulo do Cadastro'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -24
+            Font.Name = 'Segoe UI'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ExplicitHeight = 32
+          end
+        end
       end
     end
   end

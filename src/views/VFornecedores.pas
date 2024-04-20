@@ -18,8 +18,6 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
-    pnlTituloCadastro: TPanel;
-    lblTituloCadastro: TLabel;
     edtPES_CODIGO: TDBEdit;
     edtPES_RAZAO: TDBEdit;
     edtPES_FANTASIA: TDBEdit;

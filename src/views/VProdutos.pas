@@ -14,8 +14,6 @@ type
     dsProdutoFilial: TDataSource;
     pnlDetalhes: TPanel;
     BDG_Detalhes: TDBGrid;
-    pnlTituloCadastro: TPanel;
-    lblTituloCadastro: TLabel;
     Label1: TLabel;
     edtPRD_CODIGO: TDBEdit;
     Label2: TLabel;
@@ -89,9 +87,17 @@ end;
 procedure TViewProdutos.btnExcluirClick(Sender: TObject);
 begin
   inherited;
-  dsProdutoFilial.DataSet.Delete;
-  dsDados.DataSet.Delete;
-  TViewMensagens.Mensagem(sTELA + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk]);
+  if dsDados.DataSet.State in dsEditModes then
+    Exit;
+
+  if dsDados.DataSet.RecordCount > 0 then
+  begin
+    if dsProdutoFilial.DataSet.RecordCount > 0 then
+      dsProdutoFilial.DataSet.Delete;
+
+    dsDados.DataSet.Delete;
+    TViewMensagens.Mensagem(sTELA + ' excluido com sucesso!', 'Exclusão', 'I', [mbOk]);
+  end;
 end;
 
 procedure TViewProdutos.FormShow(Sender: TObject);

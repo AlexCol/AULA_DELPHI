@@ -32,6 +32,8 @@ type
     edtPesquisa: TSearchBox;
     DBG_dados: TDBGrid;
     dsDados: TDataSource;
+    pnlTituloCadastro: TPanel;
+    lblTituloCadastro: TLabel;
     procedure btnSairClick(Sender: TObject);
     procedure pnlTopoPesquisaMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -45,6 +47,7 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure DBG_dadosDblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -110,7 +113,6 @@ end;
 
 procedure TViewBaseListas.btnEditarClick(Sender: TObject);
 begin
-  inherited;
   if dsDados.DataSet.State = dsInsert then
     TViewMensagens.Mensagem('Cadastro em modo novo registro, não é possível editar ainda.',
                             'Alerta',
@@ -121,6 +123,12 @@ begin
     CardPanelLista.ActiveCard := CardCadastro;
     dsDados.DataSet.Edit;
   end;
+end;
+
+procedure TViewBaseListas.DBG_dadosDblClick(Sender: TObject);
+begin
+  inherited;
+  btnEditarClick(Sender);
 end;
 
 procedure TViewBaseListas.btnSalvarClick(Sender: TObject);

@@ -17,6 +17,7 @@ inherited ViewMensagens: TViewMensagens
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
+    OnMouseDown = MouseDownToMove
     object imgAlert: TImage
       Left = 0
       Top = 0
@@ -59,6 +60,7 @@ inherited ViewMensagens: TViewMensagens
         807101605C00181700C60580F90D70AC9F7F65A3D7810000000049454E44AE42
         6082}
       Visible = False
+      OnMouseDown = MouseDownToMove
       ExplicitLeft = 88
       ExplicitTop = 72
       ExplicitWidth = 105
@@ -119,6 +121,7 @@ inherited ViewMensagens: TViewMensagens
         C5E69157525AF998440398830A00661500CC2A0098550030AB00605601C0AC02
         80597F0099EF669DCA52529F0000000049454E44AE426082}
       Visible = False
+      OnMouseDown = MouseDownToMove
       ExplicitLeft = 88
       ExplicitTop = 72
       ExplicitWidth = 105
@@ -180,10 +183,8 @@ inherited ViewMensagens: TViewMensagens
         94B206B00FAA0084550108AB0210560520AC0A40581580B02A0061FD036ECC6F
         9D7F6CB1B40000000049454E44AE426082}
       Visible = False
-      ExplicitLeft = 88
-      ExplicitTop = 72
-      ExplicitWidth = 105
-      ExplicitHeight = 105
+      OnMouseDown = MouseDownToMove
+      ExplicitLeft = -3
     end
   end
   object pnlConteudo: TPanel
@@ -196,6 +197,8 @@ inherited ViewMensagens: TViewMensagens
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
+    OnMouseDown = MouseDownToMove
+    ExplicitLeft = 156
     object pnlTitulo: TPanel
       Left = 0
       Top = 0
@@ -218,6 +221,7 @@ inherited ViewMensagens: TViewMensagens
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
+        OnMouseDown = MouseDownToMove
         ExplicitWidth = 78
         ExplicitHeight = 30
       end
@@ -230,6 +234,7 @@ inherited ViewMensagens: TViewMensagens
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
+      OnMouseDown = MouseDownToMove
       object btnOk: TSpeedButton
         Left = 635
         Top = 0
@@ -265,7 +270,6 @@ inherited ViewMensagens: TViewMensagens
         ParentFont = False
         Visible = False
         OnClick = btnSimClick
-        ExplicitLeft = 486
         ExplicitTop = 3
       end
       object btnNao: TSpeedButton
@@ -298,7 +302,17 @@ inherited ViewMensagens: TViewMensagens
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
       TabOrder = 2
+      ExplicitLeft = 6
+      ExplicitTop = 41
     end
   end
 end

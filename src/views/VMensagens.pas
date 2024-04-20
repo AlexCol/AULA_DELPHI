@@ -27,6 +27,8 @@ type
     procedure btnSimClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure btnNaoClick(Sender: TObject);
+    procedure MouseDownToMove(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -47,6 +49,7 @@ begin
   inherited;
   Self.ModalResult := mrYes;
 end;
+
 
 procedure TViewMensagens.btnNaoClick(Sender: TObject);
 begin
@@ -118,4 +121,13 @@ begin
   end;
 end;
 
+procedure TViewMensagens.MouseDownToMove(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+const
+  sc_DragMove = $f012;
+begin
+  inherited;
+  ReleaseCapture;
+  Perform(WM_SYSCOMMAND, sc_DragMove, 0);
+end;
 end.

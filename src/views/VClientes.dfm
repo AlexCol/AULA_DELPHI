@@ -9,7 +9,6 @@ inherited ViewClientes: TViewClientes
   end
   inherited pnlBackgroundPesquisa: TPanel
     inherited CardPanelLista: TCardPanel
-      ActiveCard = CardCadastro
       inherited CardPesquisa: TCard
         inherited DBG_dados: TDBGrid
           Columns = <
@@ -45,7 +44,8 @@ inherited ViewClientes: TViewClientes
         Font.Charset = ANSI_CHARSET
         Font.Style = [fsBold]
         ParentFont = False
-        object Label1: TLabel
+        ExplicitTop = 0
+        object Label1: TLabel [0]
           Left = 24
           Top = 120
           Width = 38
@@ -53,7 +53,7 @@ inherited ViewClientes: TViewClientes
           Caption = 'C'#243'digo'
           FocusControl = edtPES_CODIGO
         end
-        object Label2: TLabel
+        object Label2: TLabel [1]
           Left = 286
           Top = 120
           Width = 93
@@ -61,7 +61,7 @@ inherited ViewClientes: TViewClientes
           Caption = 'Nome do Cliente'
           FocusControl = edtPES_RAZAO
         end
-        object Label3: TLabel
+        object Label3: TLabel [2]
           Left = 742
           Top = 120
           Width = 81
@@ -69,7 +69,7 @@ inherited ViewClientes: TViewClientes
           Caption = 'Nome Fantasia'
           FocusControl = edtPES_FANTASIA
         end
-        object Label4: TLabel
+        object Label4: TLabel [3]
           Left = 274
           Top = 176
           Width = 49
@@ -83,7 +83,7 @@ inherited ViewClientes: TViewClientes
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label5: TLabel
+        object Label5: TLabel [4]
           Left = 130
           Top = 120
           Width = 52
@@ -91,7 +91,7 @@ inherited ViewClientes: TViewClientes
           Caption = 'CPF/CNPJ'
           FocusControl = edtPES_CPFCNPJ
         end
-        object Label6: TLabel
+        object Label6: TLabel [5]
           Left = 24
           Top = 176
           Width = 125
@@ -105,7 +105,7 @@ inherited ViewClientes: TViewClientes
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label7: TLabel
+        object Label7: TLabel [6]
           Left = 25
           Top = 232
           Width = 65
@@ -118,29 +118,13 @@ inherited ViewClientes: TViewClientes
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object pnlTituloCadastro: TPanel
-          Left = 0
-          Top = 0
-          Width = 1098
-          Height = 81
-          Align = alTop
-          BevelOuter = bvNone
-          Color = 9502865
-          ParentBackground = False
-          TabOrder = 0
-          object lblTituloCadastro: TLabel
-            Left = 13
-            Top = 6
-            Width = 190
-            Height = 30
-            Alignment = taCenter
-            Caption = 'Cadastro de Clientes'
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -21
-            Font.Name = 'Segoe UI Semilight'
-            Font.Style = []
-            ParentFont = False
+        inherited pnlTituloCadastro: TPanel
+          TabOrder = 7
+          ExplicitTop = 0
+          inherited lblTituloCadastro: TLabel
+            Width = 312
+            Caption = '[ CADASTRO DE CLIENTES ]'
+            ExplicitWidth = 312
           end
         end
         object edtPES_CODIGO: TDBEdit
@@ -157,7 +141,7 @@ inherited ViewClientes: TViewClientes
           Font.Style = []
           ParentFont = False
           ReadOnly = True
-          TabOrder = 1
+          TabOrder = 0
         end
         object edtPES_RAZAO: TDBEdit
           Left = 286
@@ -172,7 +156,7 @@ inherited ViewClientes: TViewClientes
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 2
         end
         object edtPES_FANTASIA: TDBEdit
           Left = 742
@@ -188,7 +172,7 @@ inherited ViewClientes: TViewClientes
           Font.Style = []
           ImeName = 'edtPES_FANTASIA'
           ParentFont = False
-          TabOrder = 4
+          TabOrder = 3
         end
         object edtPES_TELEFONE: TDBEdit
           Left = 274
@@ -203,7 +187,7 @@ inherited ViewClientes: TViewClientes
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 5
         end
         object edtPES_CPFCNPJ: TDBEdit
           Left = 130
@@ -218,7 +202,7 @@ inherited ViewClientes: TViewClientes
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 1
         end
         object edtPES_IERG: TDBEdit
           Left = 24
@@ -233,7 +217,7 @@ inherited ViewClientes: TViewClientes
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 5
+          TabOrder = 4
         end
         object edtPES_OBSERVACAO: TDBEdit
           Left = 24
@@ -248,7 +232,7 @@ inherited ViewClientes: TViewClientes
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
         end
       end
     end
